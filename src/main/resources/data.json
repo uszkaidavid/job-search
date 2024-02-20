@@ -1,0 +1,28 @@
+{
+  "clients": [
+    {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "apiKey": "d9f1ad72-e880-41c3-9fd7-ba0732d10be3"
+    },
+    {
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "apiKey": "3e1d0364-8bc7-4729-a19a-3f30ec4587a9"
+    }
+  ],
+  "positions": [
+    {
+      "jobTitle": "Java Developer",
+      "location": "New York"
+    },
+    {
+      "jobTitle": "Software Engineer",
+      "location": "San Francisco"
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "location": "New York"
+    }
+  ]
+}
