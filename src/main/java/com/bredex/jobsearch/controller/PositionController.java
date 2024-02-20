@@ -4,7 +4,6 @@ import com.bredex.jobsearch.model.Position;
 import com.bredex.jobsearch.model.SearchRequest;
 import com.bredex.jobsearch.service.ApiKeyService;
 import com.bredex.jobsearch.service.PositionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,15 +24,15 @@ import java.util.Map;
 @RestController
 @RequestMapping("/position")
 public class PositionController {
+  private final PositionService positionService;
+  private final ApiKeyService apiKeyService;
+  private final String baseUrl;
 
-  @Autowired
-  private PositionService positionService;
-
-  @Autowired
-  private ApiKeyService apiKeyService;
-
-  @Value("${base.url}")
-  private String baseUrl;
+  public PositionController(PositionService positionService, ApiKeyService apiKeyService, @Value("${base.url}") String baseUrl) {
+    this.positionService = positionService;
+    this.apiKeyService = apiKeyService;
+    this.baseUrl = baseUrl;
+  }
 
   @PostMapping
   public ResponseEntity<Map<String, String>> createPosition(@Validated @RequestBody Position position, @RequestHeader("X-API-Key") String apiKey) {

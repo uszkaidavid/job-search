@@ -2,17 +2,17 @@ package com.bredex.jobsearch.service;
 
 import com.bredex.jobsearch.model.Position;
 import com.bredex.jobsearch.repository.PositionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class PositionService {
 
-  @Autowired
-  private PositionRepository positionRepository;
+  private final PositionRepository positionRepository;
 
   public Position createPosition(Position position) {
     return positionRepository.save(position);

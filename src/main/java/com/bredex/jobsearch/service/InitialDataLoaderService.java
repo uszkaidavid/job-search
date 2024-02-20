@@ -4,6 +4,7 @@ import com.bredex.jobsearch.model.InitialData;
 import com.bredex.jobsearch.repository.ClientRepository;
 import com.bredex.jobsearch.repository.PositionRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
@@ -12,16 +13,11 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Service
+@RequiredArgsConstructor
 public class InitialDataLoaderService {
   private final ClientRepository clientRepository;
   private final PositionRepository positionRepository;
   private final ResourceLoader resourceLoader;
-
-  public InitialDataLoaderService(ClientRepository clientRepository, PositionRepository positionRepository, ResourceLoader resourceLoader) {
-    this.clientRepository = clientRepository;
-    this.positionRepository = positionRepository;
-    this.resourceLoader = resourceLoader;
-  }
 
   @PostConstruct
   public void loadInitialData() {

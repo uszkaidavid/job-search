@@ -3,7 +3,8 @@ package com.bredex.jobsearch.controller;
 import com.bredex.jobsearch.model.Client;
 import com.bredex.jobsearch.service.ClientService;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,9 +17,9 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/clients")
+@RequiredArgsConstructor
 public class ClientController {
-  @Autowired
-  private ClientService clientService;
+  private final ClientService clientService;
 
   @PostMapping
   public ResponseEntity<Map<String, String>> registerClient(@Valid @RequestBody Client client) {
